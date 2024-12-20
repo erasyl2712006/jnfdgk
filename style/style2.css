@@ -1,0 +1,124 @@
+
+body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+    height: 2000px;
+}
+header {
+    text-align: center;
+    padding: 20px;
+    color: white;
+    position: fixed; /* Фиксируем header сверху */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s ease; /* Плавное изменение фона */
+    background-color: rgba(133, 31, 31, 0); /* Начальная прозрачность */
+    height: 80px; /* Высота header */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Добавим легкую тень */
+}
+
+header.scrolled {
+    background-color: rgba(43, 36, 103, 0.8); /* Непрозрачный фон при прокрутке */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Усиливаем тень при прокрутке */
+}
+
+header h1 {
+    position: relative;
+    left: -700px; /* Смещение заголовка */
+    top: 10px;
+}
+
+header nav a {
+    position: relative;
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+    top: -22px; /* Уменьшили начальное смещение ссылок */
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+header nav a:hover {
+    color: #0dbbff;
+    top: -25px; /* Уменьшили "подпрыгивание" */
+    text-shadow: 0 0 5px #0dbbff; /* Уменьшили интенсивность тени */
+    font-weight: bold; /* Дополнительное выделение при наведении */
+}
+
+header nav a.active {
+    color: #0dbbff; /* Активная ссылка */
+    font-weight: bold; /* Сделать активную ссылку жирной */
+    border-bottom: 2px solid #0dbbff; /* Подчеркивание */
+}
+
+header nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #0dbbff;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+header nav a:hover::after {
+    transform: scaleX(1); /* Подчеркивание появляется плавно */
+}
+
+main {
+    position: relative;
+    top: 100px;
+    padding: 20px;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.tasks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.task {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.task:hover {
+    transform: scale(1.05);
+}
+
+.task h3 {
+    margin-top: 0;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    background: #2b2467;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background: #0dbbff;
+}
+

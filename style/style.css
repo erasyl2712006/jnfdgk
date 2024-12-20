@@ -1,0 +1,720 @@
+/* style.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    color: white;
+    position: fixed; /* Фиксируем header сверху */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s ease; /* Плавное изменение фона */
+    background-color: rgba(0, 0, 0, 0); /* Начальная прозрачность */
+}
+
+header.scrolled {
+    background-color: rgb(43, 36, 103, 0.8); /* Когда прокрутили, делаем фон непрозрачным */
+}
+header h1{
+
+    position: relative;
+    left: -700px;
+    top: 10px;
+}
+
+header nav a {
+    position: relative;
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+    top: -14px;
+    transition: all 0.3s ease;
+}
+
+header nav a:hover {
+    color: #0dbbff;
+    top: -18px;
+    text-shadow: 0 0 10px #0dbbff;
+}
+
+header nav a.active {
+    color: #0dbbff; /* Золотой цвет для активной ссылки */
+    font-weight: bold; /* Сделать активную ссылку жирной */
+    border-bottom: 2px solid #0dbbff; /* Добавить подчеркивание */
+}
+
+header nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #0dbbff;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+header nav a:hover::after {
+    transform: scaleX(1);
+}
+.fon {
+    position: absolute; /* Фон будет в самом верху */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 851px; /* Высота фона */
+    background-size: cover;
+    background-position: center;
+    z-index: -1; /* Чтобы фон оказался под header */
+}
+
+
+.hero-content {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+    z-index: 10;
+    opacity: 0;  /* Начальная невидимость для анимации */
+    animation: fadeIn 2s ease-in-out forwards;  /* Анимация появления */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: scaleIn 2s ease-in-out 0.5s forwards; /* Анимация увеличения */
+}
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-top: 20px;
+    animation: slideIn 2s ease-in-out 1s forwards; /* Анимация сдвига */
+    opacity: 0;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Стиль для анимации прокрутки */
+.hero-content .scroll-down {
+    font-size: 2rem;
+    text-decoration: none;
+    color: #ffd700;
+    border: 2px solid #ffd700;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 30px;
+}
+
+.hero-content .scroll-down:hover {
+    background-color: #ffd700;
+    color: #000;
+    transform: scale(1.1); /* Легкое увеличение при наведении */
+}
+
+/* Стиль для секции О нас*/
+.info-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 30px;
+    background: linear-gradient(135deg, #6E7EFF, #4CAF50);
+    border-radius: 12px;
+    color: #fff;
+    flex-wrap: wrap; /* Для адаптивности */
+}
+
+/* Текст с описанием */
+/* Основной стиль */
+.info-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 60px 30px;
+    background: #f7f9fc;
+    border-radius: 12px;
+    flex-wrap: wrap;
+    height: 900px;
+}
+
+.info-text {
+    width: 45%;
+    max-width: 500px;
+    margin-right: 30px;
+    position: relative;
+    top: 150px;
+}
+
+.info-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    color: #2c3e50;
+    letter-spacing: 1px;
+}
+
+.info-section p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 40px;
+    max-width: 750px;
+    line-height: 1.6;
+}
+
+/* Блоки с информацией */
+.info-blocks {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 50%;
+    
+}
+
+/* Блоки информации */
+.info-item {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    width: 23%;
+    min-width: 280px;
+   
+    
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.icon {
+    font-size: 40px;
+    color: #4CAF50;
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+.info-item:hover .icon {
+    color: #6E7EFF;
+}
+
+.info-item h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.info-item p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* Кнопка */
+.btn {
+    display: inline-block;
+    background-color: #fff;
+    color: rgb(43, 36, 103);
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: 2px solid rgb(43, 36, 103);
+    margin-top: 1px;
+    position: relative;
+    top: -160px;
+}
+
+.btn:hover {
+    background-color: rgb(43, 36, 103);
+    color: #fff;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .info-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .info-text {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .info-blocks {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .info-item {
+        width: 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    .info-item {
+        width: 100%;
+    }
+}
+
+/* Стиль для блока с информацией о PHP на всю ширину */
+.php-info {
+    background: linear-gradient(135deg, rgba(50, 50, 50, 0.8), rgba(0, 0, 0, 0.7)), url('https://example.com/your-image.jpg') center/cover no-repeat; 
+    /* Градиентный слой поверх изображения */
+    padding: 60px 20px; /* Увеличенные отступы для красоты */
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Легкая тень */
+    color: white;
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: none; /* Убираем анимацию при наведении */
+    height: 900px;
+
+}
+
+/* Для лучшего эффекта на фон */
+.php-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный слой */
+    z-index: -1; /* Это слой будет под текстом */
+}
+
+/* Заголовок */
+.php-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: relative;
+    z-index: 2;
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+/* Анимация для заголовка */
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Текст */
+.php-info p {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    color: #f2f2f2;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    animation: fadeInText 1.5s ease-out 0.5s forwards;
+}
+.php-info .p1{
+    position: relative;
+    left: -310px;
+    
+
+}
+.php-info .p2{
+    position: relative;
+    left: 310px;
+   top: -140px;
+
+}
+.php-info .p1 img{
+    height: 300px;
+    position: relative;
+    left: 800px;
+    top: -200px;
+}
+.php-info .p2 img{
+    height: 300px;
+    position: relative;
+    left: -800px;
+    top: -200px;
+}
+
+/* Анимация текста */
+@keyframes fadeInText {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Кнопка "Узнать больше о PHP" */
+.php-info .btn-learn {
+    background-color: #ffd700;
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    position: relative;
+    z-index: 3;
+    text-transform: uppercase;
+    
+}
+
+.php-info .btn-learn:hover {
+    background-color: #0dbbff;
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(13, 187, 255, 0.5);
+}
+
+.php-info .btn-learn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.4s ease;
+    transform: translate(-50%, -50%);
+}
+
+.php-info .btn-learn:hover::after {
+    width: 100%;
+}
+.features-table {
+    padding: 50px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 15px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+table th {
+    background-color: #1d1f72;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #f4f4f4;
+}
+
+@media (max-width: 768px) {
+    table th, table td {
+        padding: 10px;
+    }
+}
+.history {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 50px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.history h2 {
+    font-size: 2.5rem; /* Увеличен размер заголовка */
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* Увеличен промежуток между карточками */
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.card {
+    background-color: #fff;
+    padding: 30px; /* Увеличено внутреннее расстояние */
+    border-radius: 15px; /* Сделана более округлая форма */
+    width: 350px; /* Увеличена ширина карточки */
+    height: 350px; /* Увеличена высота карточки */
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Увеличена тень */
+    margin-bottom: 40px; /* Увеличен нижний отступ */
+}
+
+.card:hover {
+    transform: translateY(-15px); /* Немного увеличена анимация */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card h3 {
+    font-size: 2rem; /* Увеличен размер заголовка внутри карточки */
+    margin-bottom: 20px;
+    color: #444;
+}
+
+.card .short-description {
+    font-size: 1.2rem; /* Увеличен размер шрифта для короткого описания */
+    color: #666;
+    margin-bottom: 20px; /* Увеличены отступы */
+}
+
+.card .long-description {
+    position: absolute;
+    bottom: -120%;
+    left: 0;
+    right: 0;
+    background-color: #f0f0f0;
+    padding: 30px; /* Увеличено пространство для длинного описания */
+    border-top: 3px solid #ccc; /* Увеличена толщина линии сверху */
+    transition: bottom 0.3s ease;
+}
+
+.card:hover .long-description {
+    bottom: 0;
+}
+
+.card .long-description p {
+    font-size: 1.2rem; /* Увеличен шрифт для длинного описания */
+    color: #444;
+}
+
+/* Стиль для стрелок */
+.arrow {
+    font-size: 2.5rem; /* Увеличен размер стрелки */
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 20px;
+    transition: transform 0.3s ease;
+}
+
+.arrow:hover {
+    transform: scale(1.3);
+}
+
+/* Стиль для линии-стрелки между 2000 и 2004 */
+.line-arrow {
+    width: 80px; /* Увеличена ширина линии */
+    height: 8px; /* Увеличена высота линии */
+    background-color: #333;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+}
+
+.line-arrow::before {
+    content: '→';
+    font-size: 3rem; /* Увеличена стрелка */
+    color: #333;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+}
+/* Основной контейнер */
+.tips {
+    background-color: #f4f7fb;
+    padding: 50px 20px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.tips h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    font-weight: bold;
+    color: #333;
+}
+
+.tips-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.tip-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.tip-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.tip-icon {
+    font-size: 3rem;
+    color: #007bff;
+    margin-bottom: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.tip-card:hover .tip-icon {
+    opacity: 1;
+}
+
+.tip-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.tip-card p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+    font-size: 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    border-top: 4px solid #007bff; /* Линия сверху футера */
+}
+
+.footer-content {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 1rem;
+    color: #ccc;
+}
+
+.footer .social-icons {
+    margin-top: 20px;
+}
+
+.footer .social-icon {
+    font-size: 1.5rem;
+    color: #fff;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer .social-icon:hover {
+    color: #007bff; /* Цвет при наведении */
+}
+
+.footer a {
+    text-decoration: none;
+}
+
+.footer .social-icons a {
+    margin: 0 15px;
+}
+
+@media (max-width: 768px) {
+    .footer .social-icons {
+        margin-top: 15px;
+    }
+
+    .footer .social-icon {
+        font-size: 1.25rem;
+        margin: 0 8px;
+    }
+}
